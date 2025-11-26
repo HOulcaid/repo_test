@@ -4,7 +4,7 @@ WORKDIR /dir
 
 COPY test.sh ./
 
-RUN apt update
+RUN apt-get update
 
 CMD ["date"]
 
