@@ -1,1 +1,3 @@
+#!/bin/bash
+# Rest of your script content goes here...
 echo "packages updated!"
