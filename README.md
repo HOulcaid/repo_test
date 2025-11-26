@@ -1,1 +1,1 @@
-First read me file
+I want to use this repo to practice git and ci cd, it has been a long time and these skills tend to fade away.
