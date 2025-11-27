@@ -1,14 +1,16 @@
 ---
 version: "3"
-# Persistent storage 
+# Persistent storage
 volumes:
   prometheus_data: { }
   grafana_data: { }
   loki_data: { }
+
 # Bridge network
 networks:
   monitoring:
     driver: bridge
+
 services:
   ## Prometheus Service
   prometheus:
@@ -23,14 +25,15 @@ services:
       - ./prometheus/prometheus.yaml:/etc/prometheus/prometheus.yaml
       - prometheus_data:/prometheus
     command:
-      - "--config.file=/etc/prometheus/prometheus.yaml"  # Explicitly specify config file
-      - "--storage.tsdb.path=/prometheus"                # Path to store data
-      - "--web.enable-lifecycle"                         # Enable HTTP-based reload triggers
-    healthcheck:  # Add a health check to ensure the service is running
+      - "--config.file=/etc/prometheus/prometheus.yaml"   # Specify config file
+      - "--storage.tsdb.path=/prometheus"                 # Path to store data
+      - "--web.enable-lifecycle"                          # Enable reload triggers
+    healthcheck:
       test: ["CMD-SHELL", "wget -q --spider http://localhost:9090/-/ready || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
+
   ## Grafana Service
   grafana:
     image: grafana/grafana
@@ -46,12 +49,13 @@ services:
       - ./grafana/grafana.config
     depends_on:
       - prometheus
-    healthcheck:  # Health check to ensure Grafana is ready
+    healthcheck:
       test: ["CMD-SHELL", "wget -q --spider http://localhost:3000/login || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
-## Loki Service
+
+  ## Loki Service (Indentation fixed)
   loki:
     image: grafana/loki:latest
     container_name: loki
@@ -60,7 +64,8 @@ services:
     command: -config.file=/etc/loki/local-config.yaml
     networks:
       - monitoring
-## Loki Service
+
+  ## Promtail Service (Indentation fixed)
   promtail:
     image: grafana/promtail:latest
     container_name: promtail
