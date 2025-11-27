@@ -1,16 +1,14 @@
+---
 version: "3"  
-
 # Persistent storage 
 volumes:
   prometheus_data: {}
   grafana_data: {}
   loki_data: {}
-
 # Bridge network
 networks:
   monitoring:
     driver: bridge
-
 services:
   ## Prometheus Service
   prometheus:
@@ -33,7 +31,6 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-
   ## Grafana Service
   grafana:
     image: grafana/grafana
@@ -54,7 +51,6 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-
 ## Loki Service
   loki:
     image: grafana/loki:latest
@@ -64,7 +60,6 @@ services:
     command: -config.file=/etc/loki/local-config.yaml    
     networks:
       - monitoring
-
 ## Loki Service
   promtail:
     image: grafana/promtail:latest
