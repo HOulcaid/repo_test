@@ -23,7 +23,7 @@ jobs:
 
     show-version:
         runs-on: ubuntu-latest
-        needs: show-time   
+        needs: say-hello-inline-bash   
         steps:
             - name: show version
               run: echo "The linux version is $(lsb_release -a)"
