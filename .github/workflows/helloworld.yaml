@@ -19,3 +19,10 @@ jobs:
         steps:
             - name: tell time
               run: echo "The time is $(date)"
+
+    show-version:
+        runs-on: ubuntu-latest
+        needs: show-time   
+        steps:
+            - name: show version
+              run: echo "The linux version is $(lsb_release -a)"           
