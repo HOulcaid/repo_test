@@ -55,7 +55,7 @@ services:
       timeout: 10s
       retries: 3
 
-  ## Loki Service (Indentation fixed)
+  ## Loki Service
   loki:
     image: grafana/loki:latest
     container_name: loki
@@ -65,7 +65,7 @@ services:
     networks:
       - monitoring
 
-  ## Promtail Service (Indentation fixed)
+  ## Promtail Service
   promtail:
     image: grafana/promtail:latest
     container_name: promtail
