@@ -26,4 +26,11 @@ jobs:
         needs: show-time   
         steps:
             - name: show version
-              run: echo "The linux version is $(lsb_release -a)"           
+              run: echo "The linux version is $(lsb_release -a)"
+
+    show-user:
+        runs-on: ubuntu-latest
+        needs: show-time   
+        steps:
+            - name: show user
+              run: echo "The current user is $(whoami)"
