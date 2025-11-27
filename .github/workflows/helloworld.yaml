@@ -13,3 +13,9 @@ jobs:
         steps:
             - name: Say Hello
               run: echo "Hello, World!"
+
+    show-time:
+        runs-on: ubuntu-latest
+        steps:
+            - name: tell time
+              run: echo "The time is $(date)"
