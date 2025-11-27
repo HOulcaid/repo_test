@@ -15,8 +15,7 @@ jobs:
               run: echo "Hello, World!"
 
     show-time:
-        runs-on: ubuntu-latest
-        needs: say-hello-inline-bash        
+        runs-on: ubuntu-latest     
         steps:
             - name: tell time
               run: echo "The time is $(date)"
@@ -25,7 +24,6 @@ jobs:
         runs-on: ubuntu-latest
         needs: 
             - show-time
-            - say-hello-inline-bash  
         steps:
             - name: show version
               run: echo "The linux version is $(lsb_release -a)"
@@ -33,8 +31,7 @@ jobs:
     show-user:
         runs-on: ubuntu-latest
         needs: 
-            - show-time
-            - show-version   
+            - say-hello-inline-bash   
         steps:
             - name: show user
               run: echo "The current user is $(whoami)"
