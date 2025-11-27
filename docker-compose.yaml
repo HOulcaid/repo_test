@@ -1,14 +1,5 @@
 ---
 version: "3"  
-# Persistent storage 
-volumes:
-  prometheus_data: {}
-  grafana_data: {}
-  loki_data: {}
-# Bridge network
-networks:
-  monitoring:
-    driver: bridge
 services:
   ## Prometheus Service
   prometheus:
@@ -70,3 +61,12 @@ services:
     command: -config.file=/etc/promtail/promtail-config.yaml
     networks:
       - monitoring
+# Persistent storage 
+volumes:
+  prometheus_data: {}
+  grafana_data: {}
+  loki_data: {}
+# Bridge network
+networks:
+  monitoring:
+    driver: bridge
