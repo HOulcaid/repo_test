@@ -27,4 +27,4 @@ jobs:
         steps:
             - name: show version
               run: echo "The linux version is $(lsb_release -a)"
-              run: echo "The current user is $(whoami)"
+                    echo "The current user is $(whoami)"
