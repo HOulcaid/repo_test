@@ -12,7 +12,7 @@ jobs:
         runs-on: ubuntu-latest      
         steps:
             - name: Say Hello
-              run: echo "Hello, World!"
+              run: echo "Hello, Github Actions!"
 
     show-time:
         runs-on: ubuntu-latest     
@@ -27,4 +27,9 @@ jobs:
         steps:
             - name: show version
               run: echo "The linux version is $(lsb_release -a)"
-                    echo "The current user is $(whoami)"
+    
+    show-user:
+        runs-on: ubuntu-latest     
+        steps:
+            - name: who is the user
+              run: echo "The current user is $(whoami)"
